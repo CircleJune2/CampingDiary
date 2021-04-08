@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: ./app/libs/appiron_android_v2.13.2.jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/appiron_android_v2.13.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
