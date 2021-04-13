@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
 
           if (count %10 == 0){
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-            builder.setTitle("준비중...").setMessage("준비중인 메뉴입니다.");
+            builder.setTitle("업데이트 예정...").setMessage("준비중인 메뉴입니다.");
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
           }
@@ -89,6 +89,7 @@ public class MainActivity extends Activity {
     });
 
     initViewAndAction();
+
 
   }
   private void initViewAndAction() {
@@ -124,6 +125,7 @@ public class MainActivity extends Activity {
       String appironResult_old = appIron.authApp(APPIRON_AUTHCHECK_URL);
 
 
+      //Toast myToast = Toast.makeText(this.getApplicationContext(), "", Toast.LENGTH_SHORT);
       Toast.makeText(getApplicationContext(), appironResult_old, Toast.LENGTH_LONG).show();
     }
 

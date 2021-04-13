@@ -9,6 +9,6 @@ public class VisitActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visit);
-
+        //마음껏 코딩~
     }
 }

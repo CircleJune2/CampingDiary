@@ -1,11 +1,11 @@
-com/secucen/appiron/campingdiary/BuildConfig.java
- com.secucen.appiron.campingdiary.BuildConfig
-com/secucen/appiron/campingdiary/VisitActivity.java
- com.secucen.appiron.campingdiary.VisitActivity
+com/secucen/appiron/campingdiary/SplashActivity.java
+ com.secucen.appiron.campingdiary.SplashActivity
 com/secucen/appiron/campingdiary/MainActivity.java
  com.secucen.appiron.campingdiary.MainActivity
  com.secucen.appiron.campingdiary.MainActivity$1
  com.secucen.appiron.campingdiary.MainActivity$2
  com.secucen.appiron.campingdiary.MainActivity$AppIronTask
-com/secucen/appiron/campingdiary/SplashActivity.java
- com.secucen.appiron.campingdiary.SplashActivity
+com/secucen/appiron/campingdiary/VisitActivity.java
+ com.secucen.appiron.campingdiary.VisitActivity
+com/secucen/appiron/campingdiary/BuildConfig.java
+ com.secucen.appiron.campingdiary.BuildConfig
