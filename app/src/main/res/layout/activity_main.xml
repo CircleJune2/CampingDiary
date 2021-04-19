@@ -2,10 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:background="@drawable/back1"
-	>
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="@drawable/back">
 
-	<ImageView
+	<ViewFlipper
+		android:id="@+id/image_slide"
+		android:layout_width="match_parent"
+		android:layout_height="220dp"/>
+
+<!--	<ImageView
 		android:id="@+id/logoImageView"
 		android:layout_width="314dp"
 		android:layout_height="299dp"
@@ -14,7 +19,7 @@
 		android:layout_marginLeft="50dp"
 		android:layout_marginTop="81dp"
 		android:layout_marginRight="50dp"
-		android:src="@drawable/main_logo" />
+		android:src="@drawable/main_logo" />-->
 
 	<EditText
 		android:id="@+id/editUrl"
@@ -27,28 +32,34 @@
 		android:id="@+id/authAppBtn"
 		android:layout_width="314dp"
 		android:layout_height="59dp"
-		android:layout_below="@id/logoImageView"
+		android:layout_below="@id/image_slide"
 		android:layout_centerInParent="true"
-		android:layout_marginTop="198dp"
-		android:visibility="invisible"
-		android:background="@drawable/auth_btn"
+		android:layout_marginStart="48dp"
+		android:layout_marginLeft="48dp"
+		android:layout_marginTop="331dp"
+		android:layout_marginEnd="50dp"
+		android:layout_marginRight="50dp"
+		android:background="@drawable/custom_ripple_effect"
 		android:onClick="authApp"
 		android:text="앱 검증"
 		android:textColor="@android:color/white"
-		android:textSize="20dp" />
+		android:textSize="20dp"
+		android:visibility="invisible" />
 
 	<Button
 		android:id="@+id/itemListBtn"
 		android:layout_width="314dp"
 		android:layout_height="59dp"
-		android:layout_below="@id/logoImageView"
+		android:layout_below="@id/image_slide"
 		android:layout_alignParentEnd="true"
 		android:layout_alignParentRight="true"
 		android:layout_centerInParent="true"
-		android:layout_marginTop="110dp"
-		android:layout_marginEnd="50dp"
-		android:layout_marginRight="50dp"
-		android:background="@drawable/auth_btn"
+		android:layout_marginStart="48dp"
+		android:layout_marginLeft="48dp"
+		android:layout_marginTop="265dp"
+		android:layout_marginEnd="48dp"
+		android:layout_marginRight="48dp"
+		android:background="@drawable/custom_ripple_effect"
 		android:text="내 캠핑 장비 목록"
 		android:textColor="@android:color/white"
 		android:textSize="20dp" />
@@ -57,14 +68,16 @@
 		android:id="@+id/visitListBtn"
 		android:layout_width="314dp"
 		android:layout_height="59dp"
-		android:layout_below="@id/logoImageView"
+		android:layout_below="@id/image_slide"
 		android:layout_alignParentStart="true"
 		android:layout_alignParentLeft="true"
 		android:layout_centerInParent="true"
-		android:layout_marginStart="48dp"
-		android:layout_marginLeft="48dp"
-		android:layout_marginTop="27dp"
-		android:background="@drawable/auth_btn"
+		android:layout_marginStart="49dp"
+		android:layout_marginLeft="49dp"
+		android:layout_marginTop="200dp"
+		android:layout_marginEnd="50dp"
+		android:layout_marginRight="50dp"
+		android:background="@drawable/custom_ripple_effect"
 		android:text="내가 방문한 캠핑장 목록"
 		android:textColor="@android:color/white"
 		android:textSize="20dp" />

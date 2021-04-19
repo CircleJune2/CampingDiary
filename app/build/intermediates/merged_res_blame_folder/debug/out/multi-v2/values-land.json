@@ -4,7 +4,7 @@
             "outputFile": "C:\\workspace\\testApp\\CampingDiary\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\wjlee\\.gradle\\caches\\transforms-2\\files-2.1\\ff19cd21bc28a503476b6dbfb05a4f81\\appcompat-v7-28.0.0\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\wjlee\\.gradle\\caches\\transforms-2\\files-2.1\\9e2a3832ca5b2691776f1f2a21ce8674\\appcompat-1.0.0\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\wjlee\\.gradle\\caches\\transforms-2\\files-2.1\\c0cb3774a80c4fd31a127a7f2a8e9b0f\\design-28.0.0\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\wjlee\\.gradle\\caches\\transforms-2\\files-2.1\\a6e2d762d12c5345858f9b5e097e0012\\material-1.0.0\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

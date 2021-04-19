@@ -1,4 +1,0 @@
-#Thu Apr 08 11:09:37 KST 2021
-base.0=C\:\\workspace\\testApp\\CampingDiary\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex

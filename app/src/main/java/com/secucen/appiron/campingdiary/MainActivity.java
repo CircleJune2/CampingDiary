@@ -14,6 +14,7 @@ import com.barun.appiron.android.AppIronResult;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -21,11 +22,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
+
 
 public class MainActivity extends Activity {
 
     private AppIron appIron;
+    private String aResultCode = "";
     private static final String TAG = "MainActivity";
 
     private EditText editUrl;
@@ -33,6 +39,10 @@ public class MainActivity extends Activity {
     private Button authAppBtn;
 
     private int count = 0;
+
+    ViewFlipper v_fllipper;
+
+
   /*---------------------------------------------------------------------------*
    * 앱아이언 검증서버 url
    *---------------------------------------------------------------------------*/
@@ -44,7 +54,19 @@ public class MainActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+    int images[] = {
+            R.drawable.glamping,
+            R.drawable.glamping2,
+            R.drawable.glamping,
+            R.drawable.glamping2
 
+
+    };
+    v_fllipper = findViewById(R.id.image_slide);
+
+    for(int image : images) {
+      fllipperImages(image);
+    }
 
     //text view 보여주지 않음
       editUrl = (EditText) findViewById(R.id.editUrl);
@@ -82,6 +104,7 @@ public class MainActivity extends Activity {
             alertDialog.show();
             authApp_old();
 
+
           }
 
             count ++;
@@ -92,6 +115,22 @@ public class MainActivity extends Activity {
 
 
   }
+
+  // 이미지 슬라이더 구현 메서드
+  public void fllipperImages(int image) {
+    ImageView imageView = new ImageView(this);
+    imageView.setBackgroundResource(image);
+
+    v_fllipper.addView(imageView);      // 이미지 추가
+    v_fllipper.setFlipInterval(3000);       // 자동 이미지 슬라이드 딜레이시간(1000 당 1초)
+    v_fllipper.setAutoStart(true);          // 자동 시작 유무 설정
+
+    // animation
+    v_fllipper.setInAnimation(this,android.R.anim.slide_in_left);
+    v_fllipper.setOutAnimation(this,android.R.anim.slide_out_right);
+  }
+
+
   private void initViewAndAction() {
     visitListBtn = (Button) findViewById(R.id.visitListBtn);
 
@@ -136,6 +175,8 @@ public class MainActivity extends Activity {
    * 앱아이언 1차 검증 호출
    *---------------------------------------------------------------------------*/
   public void authApp(View view) {
+
+
 	/*---------------------------------------------------------------------------*
 	 * 신규 api 호출
      *---------------------------------------------------------------------------*/
@@ -145,17 +186,17 @@ public class MainActivity extends Activity {
     /*---------------------------------------------------------------------------*
 	 * legacy api (deprecated) 호출
 	 *---------------------------------------------------------------------------*/
-//    authAppLegacy();
+    //authAppLegacy();
   }
 
   private void authAppLegacy() {
     AppIron aAppIron = AppIron.getInstance(MainActivity.this);
-	String aResultCode = aAppIron.authApp(APPIRON_AUTHCHECK_URL);
+	aResultCode = aAppIron.authApp(APPIRON_AUTHCHECK_URL);
 
 	AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
 
 	if (aResultCode.equals("0000")) {
-	  alert.setTitle("[무결성 검증 성공]");
+	  alert.setTitle("[authApp_무결성 검증 성공]");
 	  alert.setMessage(String.format("세션아이디 [%s]\n토큰 [%s]",
 	              aAppIron.getSessionId(),
 	              aAppIron.getToken()));
@@ -163,13 +204,14 @@ public class MainActivity extends Activity {
 	  /*---------------------------------------------------------------------------*
 	   * 에러 출력
 	   *---------------------------------------------------------------------------*/
-	  alert.setTitle("[무결성 검증 실패]");
+	  alert.setTitle("[authApp_무결성 검증 실패]");
 	  alert.setMessage(aResultCode);
 	}
 
 	alert.setCancelable(false);
 	alert.setPositiveButton("close", null);
 	alert.show();
+
   }
 
   class AppIronTask extends AsyncTask<Void, Void, AppIronResult> {
@@ -233,7 +275,7 @@ public class MainActivity extends Activity {
         if (mAppIronException.getErrorCode() / 100 == 11) {
           aResultMessage.append("네트워크에 연결할 수 없습니다. 잠시 후 다시 시도해주세요.");
         } else {
-          aResultMessage.append("무결성 검증에 실패했습니다.");
+          aResultMessage.append("authenticateApp_무결성 검증에 실패했습니다.");
         }
 
         aResultMessage.append(String.format("\n[%d][%s]",
@@ -244,7 +286,7 @@ public class MainActivity extends Activity {
          * 에러 출력
          *---------------------------------------------------------------------------*/
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        alert.setTitle("[무결성 검증 실패]");
+        alert.setTitle("[authenticateApp_무결성 검증 실패]");
         alert.setMessage(aResultMessage.toString());
         alert.setCancelable(false);
         alert.setPositiveButton("close", null);
@@ -258,7 +300,7 @@ public class MainActivity extends Activity {
        * 2차 무결성 검증 시(서버 대 서버 간 검증) 사용한다.
        *---------------------------------------------------------------------------*/
       AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-      alert.setTitle("[무결성 검증 성공]");
+      alert.setTitle("[authenticateApp_무결성 검증 성공]");
       alert.setMessage(String.format("세션아이디 [%s]\n토큰 [%s]",
               pAppIronResult.getSessionId(),
               pAppIronResult.getToken()));
